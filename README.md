@@ -62,3 +62,39 @@ La base de datos se inicializa automáticamente al arrancar el contenedor del AP
 
 ---
 Desarrollado para la gestión eficiente de Marcas de Autos.
+---
+
+##Ejecución de pruebas
+Guía de Pruebas y Cobertura
+El proyecto ya cuenta con una suite de pruebas unitarias utilizando xUnit, Moq y Coverlet para medir la cobertura del código.
+
+🏃 Cómo ejecutar las pruebas
+Para ejecutar todas las pruebas del proyecto, abre una terminal en la carpeta raíz y ejecuta:
+
+bash
+dotnet test TestApplication/TestApplication.csproj
+📊 Cómo ver el porcentaje de cobertura
+Existen dos formas principales de ver la cobertura:
+
+1. Resumen rápido en consola
+Este comando mostrará una tabla directamente en la terminal con el porcentaje de líneas, ramas y métodos cubiertos.
+
+bash
+dotnet test TestApplication/TestApplication.csproj /p:CollectCoverage=true
+2. Generar reporte detallado (HTML)
+Si quieres ver exactamente qué líneas están cubiertas y cuáles no, puedes generar un reporte visual:
+
+Generar el archivo de cobertura:
+
+bash
+dotnet test TestApplication/TestApplication.csproj --collect:"XPlat Code Coverage"
+Esto creará un archivo coverage.cobertura.xml dentro de la carpeta TestApplication/TestResults/.
+
+Convertir a HTML (Opcional): Si tienes instalada la herramienta ReportGenerator, puedes convertir ese XML en una página web:
+
+bash
+# Instalar herramienta si no la tienes
+dotnet tool install -g dotnet-reportgenerator-globaltool
+# Generar el reporte
+reportgenerator -reports:"TestApplication/TestResults/**/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
+Luego abre coveragereport/index.html en tu navegador.
