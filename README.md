@@ -98,3 +98,8 @@ dotnet tool install -g dotnet-reportgenerator-globaltool
 # Generar el reporte
 reportgenerator -reports:"TestApplication/TestResults/**/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
 Luego abre coveragereport/index.html en tu navegador.
+
+<p align="center">
+  <img src="./img/Cobertura.png" alt="Reporte de Cobertura de Código">
+</p>
+
