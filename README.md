@@ -99,7 +99,6 @@ dotnet tool install -g dotnet-reportgenerator-globaltool
 reportgenerator -reports:"TestApplication/TestResults/**/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
 Luego abre coveragereport/index.html en tu navegador.
 
-<p align="center">
-  <img src="./img/Cobertura.png" alt="Reporte de Cobertura de Código">
-</p>
+Porcentaje actual de cobertura:
+<img width="1646" height="895" alt="Cobertura" src="https://github.com/user-attachments/assets/ef44b0fa-e545-42f1-a04b-4fb93f7e9814" />
 
