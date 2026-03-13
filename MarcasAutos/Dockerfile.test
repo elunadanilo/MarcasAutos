@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+
+COPY ["MarcasAutos/MarcasAutos.csproj", "MarcasAutos/"]
+COPY ["MarcasAutos.Domain/MarcasAutos.Domain.csproj", "MarcasAutos.Domain/"]
+COPY ["MarcasAutos.Infrastructure/MarcasAutos.Infrastructure.csproj", "MarcasAutos.Infrastructure/"]
+COPY ["TestApplication/TestApplication.csproj", "TestApplication/"]
+
+RUN dotnet restore "TestApplication/TestApplication.csproj"
+
+COPY . .
+
+WORKDIR "/src/TestApplication"
+ENTRYPOINT ["dotnet", "test", "/p:CollectCoverage=true", "/p:CoverletOutputFormat=cobertura"]
