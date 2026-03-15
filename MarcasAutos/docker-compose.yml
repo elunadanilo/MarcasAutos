@@ -20,6 +20,7 @@ services:
     ports:
         - "5434:80"
     container_name: api-container
+    restart: on-failure
     environment:
       - ConnectionStrings__DefaultConnection=Host=postgres-container;Port=5432;Database=testCarBrands;Username=danilo;Password=danilo.;
     depends_on:
